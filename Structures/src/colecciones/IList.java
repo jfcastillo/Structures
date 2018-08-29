@@ -1,6 +1,6 @@
 package colecciones;
 
-public interface IListaEnlazadaSimple<T> {
+public interface IList<T> {
 	boolean agregar();
 	boolean asignar(T elem);
 	boolean asignar(int pos, T elem);

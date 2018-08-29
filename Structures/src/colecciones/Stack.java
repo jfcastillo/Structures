@@ -17,6 +17,31 @@ public class Stack<T> {
 	}
 	public void push(T elem) {
 		NodoEnlazadoSimple<T> nodo = new NodoEnlazadoSimple<T>(elem);
+		nodo.setInfo(elem);
+		
+		if (isEmpty()) {
+			start = nodo;
+		}
+		else {
+			nodo.setSiguiente(start);
+			start = nodo;
+		}
+		size++;
+	}
+	public void pop() {
+		if (!isEmpty()) {
+			start = start.getSiguiente();
+			size--;
+			
+		}
+	}
+	public T top() throws Exception{
+		if (!isEmpty()) {
+			return start.getInfo();
+		}
+		else {
+			throw new Exception("The stack is empty");
+		}
 	}
 
 }

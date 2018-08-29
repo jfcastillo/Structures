@@ -1,6 +1,6 @@
 package colecciones;
 
-public class ListaEnlazadaSimple<T> implements IListaEnlazadaSimple<T>{
+public class ListaEnlazadaSimple<T> implements IList<T>{
 	private NodoEnlazadoSimple<T> primer;
 	private int longitud;
 
