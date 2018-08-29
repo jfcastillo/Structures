@@ -95,7 +95,7 @@ public class ListaEnlazadaSimple<T> implements IListaEnlazadaSimple<T>{
 	@Override
 	public boolean estaVacia() {
 		// TODO Auto-generated method stub
-		return false;
+		return primer==null;
 	}
 
 	@Override
