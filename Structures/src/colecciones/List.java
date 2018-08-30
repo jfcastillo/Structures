@@ -1,5 +1,7 @@
 package colecciones;
 
+import sun.util.locale.provider.AuxLocaleProviderAdapter;
+
 public class List<T> implements IList<T>{
 	private Node<T> first;
 	private int size;
@@ -16,6 +18,7 @@ public class List<T> implements IList<T>{
 	public void add(T elem) {
 		if (first == null) {
 			first = new Node<T>(elem);
+			size++;
 		}
 		else {
 			Node<T> nodeAux = first;
@@ -41,20 +44,33 @@ public class List<T> implements IList<T>{
 //		}		
 //	}
 
+	/**
+	 * Search the element to remove
+	 * and remove if it exist
+	 */
 	@Override
 	public void remove(T elem) {
 		if (exist(elem)) {
 			if (first.getInfo() == elem) {
-				
+				first = first.getNext();
+				size--;
 			}
-		}
-		
+			else {
+				Node aux = first;
+				while (aux.getNext().getInfo() != elem) {
+					aux = aux.getNext();					
+				}
+//				Node next = aux.getNext().getNext();
+//				aux.setNext(next);
+				aux.disconectNext();
+				size--;
+			}			
+		}		
 	}
 	
 
 	@Override
-	public int longitud() {
-		// TODO Auto-generated method stub
+	public int size() {
 		return size;
 	}
 
@@ -83,34 +99,35 @@ public class List<T> implements IList<T>{
 	}
 
 	@Override
-	public T obtenerElemento(int pos) {
+	public T get(int pos) {
 		int c = 0;
 		Node<T> nodo = null;
 		Node<T> nodoReturn = null;
-		if (first != null) {
+		if (pos >= 0 && pos<size) {
 			if (pos == 0) {
-				nodo = first;
+				nodoReturn = first;
 			}
 			else {
 				boolean exit = false;
 				nodo = first;
-				while (nodo != null && !false) {
-					if (pos == c) {
-						nodoReturn = nodo;
-						exit = true;
-					}
-					else {
-						nodo = nodo.getNext();
-						c++;
-					}
-					
-					
+//				while (nodo != null && !exit) {
+//					if (pos == c) {
+//						nodoReturn = nodo;
+//						exit = true;
+//					}
+//					else {
+//						nodo = nodo.getNext();
+//						c++;
+//					}					
+//				}
+				for (int i = 0; i < pos; i++) {
+					nodo = nodo.getNext();
 				}
+				nodoReturn = nodo;
 			}
-		}
+		}	
 		
-		
-		return nodo.getInfo();
+		return nodoReturn.getInfo();
 	}
 
 	@Override
