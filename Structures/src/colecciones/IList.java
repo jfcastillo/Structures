@@ -1,15 +1,13 @@
 package colecciones;
 
-public interface IList<T> {
-	boolean agregar();
-	boolean asignar(T elem);
-	boolean asignar(int pos, T elem);
-	boolean eliminar(T elem);
-	T eliminar(int pos);
+public interface IList<T> {	
+	void add(T elem);
+//	void add(int pos, T elem);
+	void remove(T elem);
 	int longitud();
-	boolean estaElemento(T elem);
+	boolean exist(T elem);
 	int buscar(T elem);
 	T obtenerElemento(int pos);
-	boolean estaVacia();
+	boolean isEmpty();
 	boolean eliminarTodos();
 }
