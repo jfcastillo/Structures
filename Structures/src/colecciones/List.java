@@ -2,7 +2,7 @@ package colecciones;
 
 import sun.util.locale.provider.AuxLocaleProviderAdapter;
 
-public class List<T> implements IList<T>{
+public class List<T> implements IList<T>, IStack<T>{
 	private Node<T> first;
 	private int size;
 
@@ -139,6 +139,24 @@ public class List<T> implements IList<T>{
 	public boolean eliminarTodos() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void push() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T top() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void pop() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
