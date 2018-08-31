@@ -1,7 +1,7 @@
 package colecciones;
 
 public interface IStack<T> {
-	void push();
+	void push(T elem);
 	T top();
 	void pop();
 	int size();

@@ -142,20 +142,49 @@ public class List<T> implements IList<T>, IStack<T>{
 	}
 
 	@Override
-	public void push() {
-		// TODO Auto-generated method stub
+	public void push(T elem) {
+		Node node = new Node<T>(elem);
+		if (isEmpty()) {
+			first = node;
+			size++;
+		}
+		else {
+			node.setNext(first);
+			first = node;
+			size++;
+		}
+		
 		
 	}
 
 	@Override
 	public T top() {
-		// TODO Auto-generated method stub
-		return null;
+		T r = null;
+		try {
+			if (isEmpty()) {
+				throw new Exception("The stack is empty");
+			}
+			else
+				r =  first.getInfo();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return r;
+		
 	}
 
 	@Override
 	public void pop() {
-		// TODO Auto-generated method stub
+		try {
+			if (!isEmpty()) {
+				first = first.getNext();
+				size--;
+			}
+			else
+				throw new Exception("The stack ys empty");
+		} catch (Exception e) {
+			e.getMessage();
+		}
 		
 	}
 
