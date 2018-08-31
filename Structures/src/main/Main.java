@@ -1,5 +1,10 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.ReadOnlyFileSystemException;
 import java.util.ArrayList;
 
 import colecciones.IList;
@@ -12,8 +17,11 @@ public class Main {
 
 	public Main() {
 	}
-	
-	public void balancedStrings(String  m) {
+	/**
+	 * Show in console if the string is balanced
+	 * @param m
+	 */
+	public static void balancedStrings(String  m) {
 		boolean r = false;
 		IStack<Character> stackP = new List();
 		IStack<Character> stackC = new List();
@@ -62,10 +70,35 @@ public class Main {
 		
 		System.out.println(r);
 	}
+	/**
+	 * Read the file testCase.txt and execute the method balancedStrings
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public static void readFile() throws FileNotFoundException, IOException  {
+		String ms = "";
+		FileReader fr = new FileReader("files/testCases.txt");
+		BufferedReader br = new BufferedReader(fr);
+		while ((ms = br.readLine()) != null) {
+			balancedStrings(ms);			
+		}
+		br.close();
+		
+	}
 
 	public static void main(String[] args) {
 		Main m = new Main();
-		m.balancedStrings("][[[[]]");
+		
+		try {
+			readFile();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("fin");
 		
 		
 		
