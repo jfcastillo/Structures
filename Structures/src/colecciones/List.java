@@ -181,7 +181,7 @@ public class List<T> implements IList<T>, IStack<T>{
 				size--;
 			}
 			else
-				throw new Exception("The stack ys empty");
+				throw new Exception("The stack is empty");
 		} catch (Exception e) {
 			e.getMessage();
 		}

@@ -5,4 +5,5 @@ public interface IStack<T> {
 	T top();
 	void pop();
 	int size();
+	boolean isEmpty();
 }
